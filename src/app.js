@@ -221,7 +221,7 @@ async function processLead(obj, token, apiCallBackKey, campaignId, callbackUrl, 
 async function queryChatGPT(prompt, context) {
     // Get API key from GCP Secret Manager
     const munchkinId = context.subscription.munchkinId;
-    const apiKey = await getSecretFromGCP(`ssfs-ethan-oct16-openai-apikey-${munchkinId}`);
+    const apiKey = await getSecretFromGCP(`ssfs-chatgpt-mathias-openai-apikey-249-IYZ-794`);
     
     const assistantId = await getAssistantIdFromFirestore(munchkinId);
 
