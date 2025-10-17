@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Unstructured Data",
+    "title": "ssfs-ethan-oct16",
     "x-providerName": "Exelement",
-    "description": "Service to transform unstructured data into structured format",
+    "description": "Service to transform ssfs-ethan-oct16 data into structured format",
     "version": "1.0.0",
     "x-schemaVersion": "1.0.0",
     "x-supportContact": "support@exelement.co"
@@ -220,13 +220,13 @@
       }
     }
   },
-  "apiName": "UnstructuredDataManager",
+  "apiName": "ssfsEthanOct16DataManager",
   "i18n": {
     "en": {
-      "name": "Unstructured Data Manager",
-      "triggerName": "Processes unstructured data (trigger)",
-      "filterName": "Processed unstructured data (filter)",
-      "description": "Transforms unstructured input into structured JSON responses"
+      "name": "ssfs-ethan-oct16",
+      "triggerName": "Processes ssfs-ethan-oct16 (trigger)",
+      "filterName": "Processed ssfs-ethan-oct16 (filter)",
+      "description": "Transforms ssfs-ethan-oct16 input into structured JSON responses"
     }
   },
   "primaryAttribute": "ChatGPTPrompt",
