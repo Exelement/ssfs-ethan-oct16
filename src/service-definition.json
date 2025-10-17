@@ -3,7 +3,7 @@
   "info": {
     "title": "Unstructured Data",
     "x-providerName": "Exelement",
-    "description": "",
+    "description": "Service to transform unstructured data into structured format",
     "version": "1.0.0",
     "x-schemaVersion": "1.0.0",
     "x-supportContact": "support@exelement.co"
@@ -1117,157 +1117,9 @@
     "securitySchemes": {
       "apiKey": {
         "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header"
       }
-    },
-    "picklistObject": {
-      "description": "Object containing choices for flow and global parameters",
-      "type": "object",
-      "required": [
-        "choices"
-      ],
-      "properties": {
-        "choices": {
-          "description": "List of choices to be offered in the picklist for the parameter in Marketo",
-          "type": "array",
-          "items": {
-            "$ref": "#/components/schemas/picklistChoice"
-          }
-        }
-      }
-    },
-    "picklistChoice": {
-      "description": "Object containing display value and submitted value.",
-      "required": [
-        "displayValue",
-        "submittedValue"
-      ],
-      "properties": {
-        "displayValue": {
-          "type": "object",
-          "$ref": "#/components/schemas/i18nString"
-        },
-        "submittedValue": {
-          "description": "Value which will be submitted when the choice is selected",
-          "example": "country-codes.csv",
-          "anyOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "type": "integer"
-            },
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        }
-      }
-    },
-    "fieldMappingContext": {
-      "description": "Object containing lists of lead fields which are mapped and sent in the payload of invocation or callback.  May be used to generate picklist choices on the fly based on configuration in Marketo",
-      "type": "object",
-      "properties": {
-        "invocation": {
-          "type": "array",
-          "items": {
-            "$ref": "#/components/schemas/reqFieldMapping"
-          }
-        },
-        "callback": {
-          "type": "array",
-          "items": {
-            "$ref": "#/components/schemas/reqFieldMapping"
-          }
-        }
-      }
-    },
-    "reqFieldMapping": {
-      "description": "Describes lead field mappings as they are configured in the invoking marketo instance",
-      "type": "object",
-      "required": [
-        "marketoAttribute"
-      ],
-      "properties": {
-        "marketoAttribute": {
-          "description": "Marketo API name of the mapped field.  If service is configured to use User-Driven Mappings, only the Marketo Field Name will be sent",
-          "type": "string",
-          "example": "email"
-        },
-        "serviceAttribute": {
-          "description": "API Name of the mapped field as defined by the service.  Only sent if service does not use User-Driven Mappings",
-          "type": "string",
-          "example": "emailAddress"
-        }
-      }
-    },
-    "getPicklistRequest": {
-      "description": "Schema of requests to /getPicklist",
-      "required": [
-        "name",
-        "type"
-      ],
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the field to retrieve choices for",
-          "example": "table"
-        },
-        "type": {
-          "type": "string",
-          "description": "Type of parameter to return choices for.  Either flow or global",
-          "enum": [
-            "flow",
-            "global",
-            "header"
-          ]
-        },
-        "fieldMappingContext": {
-          "description": "Field mappings as configured in the invoking Marketo instance",
-          "type": "object",
-          "$ref": "#/components/schemas/fieldMappingContext"
-        }
-      }
-    },
-    "fieldType": {
-      "description": "Enum of acceptable datatypes for mappings, parameters, and activity attributes",
-      "type": "string",
-      "enum": [
-        "boolean",
-        "integer",
-        "date",
-        "datetime",
-        "email",
-        "float",
-        "score",
-        "string",
-        "url",
-        "text"
-      ]
-    },
-    "i18nString": {
-      "description": "Used to provide translations for string fields which are surfaced to end users.  Keys should be valid 2-letter language and locale codes, e.g. fr_CA, for Canadian french",
-      "type": "object",
-      "required": [
-        "en_US"
-      ],
-      "properties": {
-        "en_US": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": {
-        "type": "string"
-      }
-    }
-  },
-  "securitySchemes": {
-    "apiKey": {
-      "type": "apiKey",
-      "name": "x-api-key",
-      "in": "header"
     }
   }
 }
